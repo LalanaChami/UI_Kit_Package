@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14.0, *)
 public struct PotfolioCardView: View {
     
     public var headingTitile : String
@@ -15,17 +16,20 @@ public struct PotfolioCardView: View {
     public var netChangeAmount : String
     public var netChangePercentage : String
     public var currency : String
+    public var lang : String
     
-    public init(headingTitile: String, icon: String, holdingAmount: String, netChangeAmount: String, netChangePercentage: String, currency: String) {
-        self.headingTitile = headingTitile
+    public init(headingTitile: String, icon: String, holdingAmount: String, netChangeAmount: String, netChangePercentage: String, currency: String, lang: String) {
+        
+        LocalizationService.shared.setLanguage(lang)
+        self.headingTitile = LocalizationService.shared.getLocalizedContent("ABOUT")
         self.icon = icon
         self.holdingAmount = holdingAmount
         self.netChangeAmount = netChangeAmount
         self.netChangePercentage = netChangePercentage
         self.currency = currency
+        self.lang = lang
       }
     
-    @available(iOS 13.0, *)
     public var body: some View {
         
         ZStack {
@@ -113,11 +117,11 @@ public struct PotfolioCardView: View {
 }
 
 
+@available(iOS 14.0, *)
 struct PotfolioCardView_Previews: PreviewProvider {
-    @available(iOS 13.0.0, *)
     static var previews: some View{
         Group {
-            PotfolioCardView(headingTitile: "Portfolio Value", icon: "holding-icon", holdingAmount: "120,000" , netChangeAmount: "+23.44", netChangePercentage: "23%", currency: "AED")
+            PotfolioCardView(headingTitile: "Portfolio Value", icon: "holding-icon", holdingAmount: "120,000" , netChangeAmount: "+23.44", netChangePercentage: "23%", currency: "AED", lang: "EN")
                 .previewLayout(.sizeThatFits)
             
         }

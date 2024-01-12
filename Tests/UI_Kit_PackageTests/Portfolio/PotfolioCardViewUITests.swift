@@ -9,7 +9,7 @@ import SwiftUI
 import XCTest
 import UI_Kit_Package
 
-@available(iOS 13.0, *)
+@available(iOS 14.0, *)
 final class PotfolioCardViewUITests: XCTestCase {
     
     func testPotfolioCardViewRendering() {
@@ -19,7 +19,8 @@ final class PotfolioCardViewUITests: XCTestCase {
                 holdingAmount: "120,000",
                 netChangeAmount: "+23.44",
                 netChangePercentage: "23%",
-                currency: "AED"
+                currency: "AED",
+                lang: "EN"
             )
 
             let hostingController = UIHostingController(rootView: view)
