@@ -17,8 +17,8 @@ let package = Package(
         .target(
             name: "UI_Kit_Package",
             resources: [
-                .copy("Sources/Localization/en.json"),
-                .copy("Sources/Localization/ar.json"),
+                .copy("Localization/en.json"),
+                .copy("Localization/ar.json"),
             ]
         ),
         .testTarget(
