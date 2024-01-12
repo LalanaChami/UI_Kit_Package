@@ -19,7 +19,7 @@ public class LocalizationService {
     }
 
     private func loadTranslations() {
-        if let path = Bundle.main.path(forResource: currentLanguage.lowercased(), ofType: "json"),
+        if let path = Bundle.module.path(forResource: currentLanguage.lowercased(), ofType: "json"),
            let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
            let json = try? JSONSerialization.jsonObject(with: data, options: []),
            let dictionary = json as? [String: Any],
